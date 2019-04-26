@@ -101,7 +101,7 @@ List of attacks on Consensus
 ----------------------------
  1. [Nothing-at-stake problem](https://ethereum.stackexchange.com/questions/2402/what-exactly-is-the-nothing-at-stake-problem)
  2. [Long range attack](https://blog.ethereum.org/2014/05/15/long-range-attacks-the-serious-problem-with-adaptive-proof-of-work/)
- 3. [Sybil attack](https://en.wikipedia.org/wiki/Sybil_attack)
+ 3. [Sybil attack](https://en.wikipedia.org/wiki/Sybil_attack) E's of Sybil Resistance: Entry Cost; Existance Cost; Exit Penalty.
  4. [51% attack](https://www.investopedia.com/terms/1/51-attack.asp) See [www.crypto51.app on github](https://github.com/tdickman/crypto51)
  5. *Block Gap Synchronisation*: a block may not be properly broadcasted, causing the network to ignore subsequent blocks. [RAIBLK]
  6. *Transaction flooding*: a malicious entity could send many unnecessary but valid transactions [RAIBLK]. Solution: each transaction must incure a fee.
