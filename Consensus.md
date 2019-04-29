@@ -42,7 +42,11 @@ Known Implementations: [Steemit](https://steemit.com/@zanewithspoon); [EOS](http
 
 > The consensus of Hashgraph [BHM18] adopts Byzantine agreement on a graph and their round-based structure costs a latency of *O(ln n)* for each round of Byzantine Agreement, which means its confirmation time increases with the number of nodes.  This limits the decentralised level of Hashgraph.
 
-Known implementations: [IOTA](https://iota.org/); [Hashgraph](https://hashgraph.com/); [RaiBlock/Nano](https://www.raiblocks.net/)
+In [IOTA] each transaction is presented as a vertex in DAG and must consfirm two previos unapproved yet transactions (called tips). The trategy to choose tips to approve is very important and is a key to IOTA technology. In case of conflict a transaction with bigger confimation chain is chosen. Each transaction has confirmation confidence. Every 2 minutes IOTA foundation issues milestone transaction and all transactions approved by it are considered to have confirmation confidence of 100% immediately.
+
+In RainBlocks/Nano [RAIBLK] uses block-lattice structure where each account mentains its own chain that only thay can write to, end everyone holds a copy of all chains. Each fund transfer consists of two transactions: send and receive. In case of conflicting transactions referencing the same block a voting process is started, it uses broadcasting to M voting repreentatives. The block with majority votes wins.
+
+Known implementations: [IOTA](https://iota.org/); [Hashgraph](https://hashgraph.com/); [RaiBlocks/Nano](https://www.raiblocks.net/)
 
 *Proof-of-Authority* is a consensus algorithm where transactions are validated by approved accounts/participants (kind like the "admins" of the system). This is a centralised system. Known implementations: [POA.Networks](https://poa.network/); [Euthereum Kovan testnet](https://kovan.etherscan.io/)
 
@@ -118,3 +122,4 @@ References
  * [ZW18; Zane Witherspoon, A Hitchhiker’s Guide to Consensus Algorithms](https://hackernoon.com/a-hitchhikers-guide-to-consensus-algorithms-d81aae3eb0e3)
  * [ETHWP8; Ethereum Problems, 8. Proof-of-Stake](https://github.com/ethereum/wiki/wiki/Problems#8-proof-of-stake)
  * [RAIBLK; Colin LeMahieu, RaiBlocks: A Feeless Distributed Cryptocurrency Network](https://www.raiblocks.net/media/RaiBlocks_Whitepaper__English.pdf)
+ * [IOTA; Serguei Popov, The Tangle, April 30, 2018. Version 1.4.3](https://iota.org/IOTA_Whitepaper.pdf)
