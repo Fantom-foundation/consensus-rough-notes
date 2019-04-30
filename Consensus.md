@@ -28,7 +28,7 @@ Ethereum Wiki page [ETHWP8] lists several problems with PoS approach, the major 
 
 The problem is described in this [video](https://www.youtube.com/watch?v=pzIl3vmEytY)
 
-*Delegated Proof-of-Stake* Is different from PoS as token holders vote to elect delegates to do validation of the blocks. The validators are shuffled periodically and given an order to deliver theirs blocks in. The number of validators is kept between 20 and 100. The main disadvantage of DPoS is its partially centralized architecture.
+*Delegated Proof-of-Stake* Is different from PoS as token holders vote to elect delegates to do validation of the blocks. The validators are shuffled periodically and given an order to deliver theirs blocks in. The number of validators is kept between 20 and 100. The main disadvantage of DPoS is its partially centralised architecture.
 
 Known Implementations: [Steemit](https://steemit.com/@zanewithspoon); [EOS](https://eos.io/); [BitShares](https://bitshares.org/).
 
@@ -42,9 +42,9 @@ Known Implementations: [Steemit](https://steemit.com/@zanewithspoon); [EOS](http
 
 > The consensus of Hashgraph [BHM18] adopts Byzantine agreement on a graph and their round-based structure costs a latency of *O(ln n)* for each round of Byzantine Agreement, which means its confirmation time increases with the number of nodes.  This limits the decentralised level of Hashgraph.
 
-In [IOTA] each transaction is presented as a vertex in DAG and must consfirm two previos unapproved yet transactions (called tips). The trategy to choose tips to approve is very important and is a key to IOTA technology. In case of conflict a transaction with bigger confimation chain is chosen. Each transaction has confirmation confidence. Every 2 minutes IOTA foundation issues milestone transaction and all transactions approved by it are considered to have confirmation confidence of 100% immediately.
+In [IOTA] each transaction is presented as a vertex in DAG and must confirm two previous unapproved yet transactions (called tips). The strategy to choose tips to approve is very important and is a key to IOTA technology. In case of conflict a transaction with bigger confirmation chain is chosen. Each transaction has confirmation confidence. Every 2 minutes IOTA foundation issues milestone transaction and all transactions approved by it are considered to have confirmation confidence of 100% immediately.
 
-In RainBlocks/Nano [RAIBLK] uses block-lattice structure where each account mentains its own chain that only thay can write to, end everyone holds a copy of all chains. Each fund transfer consists of two transactions: send and receive. In case of conflicting transactions referencing the same block a voting process is started, it uses broadcasting to M voting repreentatives. The block with majority votes wins.
+In RainBlocks/Nano [RAIBLK] uses block-lattice structure where each account maintains its own chain that only they can write to, end everyone holds a copy of all chains. Each fund transfer consists of two transactions: send and receive. In case of conflicting transactions referencing the same block a voting process is started, it uses broadcasting to M voting representatives. The block with majority votes wins.
 
 Known implementations: [IOTA](https://iota.org/); [Hashgraph](https://hashgraph.com/); [RaiBlocks/Nano](https://www.raiblocks.net/)
 
@@ -53,9 +53,11 @@ Known implementations: [IOTA](https://iota.org/); [Hashgraph](https://hashgraph.
 *Proof-of-Storage* Storage and bandwidth are scarce computational resources other to computational power and currentcy.
 Known implementations: [Permacoin]; [Torcoin]
 
-*Proof-of-Weight* is similar to PoS, but probability of "discovering" next block depends on some other to stake weighted value. *Proof-of-Reputation* can be accounted into this category. Known implemntations: [Algorand](https://people.csail.mit.edu/nickolai/papers/gilad-algorand-eprint.pdf); [Filecoin](https://filecoin.io/); [Chia](https://chia.network/)
+*Proof-of-Weight* is similar to PoS, but probability of "discovering" next block depends on some other to stake weighted value. *Proof-of-Reputation* can be accounted into this category. Known implementations: [Algorand](https://people.csail.mit.edu/nickolai/papers/gilad-algorand-eprint.pdf); [Filecoin](https://filecoin.io/); [Chia](https://chia.network/)
 
-*Byzantine Fault Tolerance (BFT)* is based on [classic problem in distributed computing](https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf). Several cryptocurrency protocols use some version of BFT to come to consensus. [*Practical Byzantine Fault Tolerance (PBFT)*](http://pmg.csail.mit.edu/papers/osdi99.pdf) is in use by [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric) with few < 20 preselected generals running PBFT. Drawbacks: Centralised/Permissioned. *Federated Byzantine Agreement (FBA)* - a solution to Byzantine genaral problem when each general responsible for their own chain and sorts messages as their come in to establish truth. Known implementations: [Stellar](https://www.stellar.org/); [Ripple](https://developers.ripple.com/xrp-ledger-overview.html).
+*Byzantine Fault Tolerance (BFT)* is based on [classic problem in distributed computing](https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf). Several cryptocurrency protocols use some version of BFT to come to consensus. [*Practical Byzantine Fault Tolerance (PBFT)*](http://pmg.csail.mit.edu/papers/osdi99.pdf) is in use by [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric) with few < 20 preselected generals running PBFT. Drawbacks: Centralised/Permissioned. *Federated Byzantine Agreement (FBA)* - a solution to Byzantine general problem when each general responsible for their own chain and sorts messages as their come in to establish truth. Known implementations: [Stellar](https://www.stellar.org/); [Ripple](https://developers.ripple.com/xrp-ledger-overview.html).
+
+Original description of Ripple Consensus protocol is given in [RPPL0]; updated analysis is given in [RPPL18]. Ripple is going to replace current XRP LCP (Ripple Ledger Consensus Protocol) with Cobalt, described in [CBLT18].
 
 
 Offscale engagement
@@ -105,10 +107,10 @@ List of attacks on Consensus
 ----------------------------
  1. [Nothing-at-stake problem](https://ethereum.stackexchange.com/questions/2402/what-exactly-is-the-nothing-at-stake-problem)
  2. [Long range attack](https://blog.ethereum.org/2014/05/15/long-range-attacks-the-serious-problem-with-adaptive-proof-of-work/)
- 3. [Sybil attack](https://en.wikipedia.org/wiki/Sybil_attack) E's of Sybil Resistance: Entry Cost; Existance Cost; Exit Penalty.
+ 3. [Sybil attack](https://en.wikipedia.org/wiki/Sybil_attack) E's of Sybil Resistance: Entry Cost; Existence Cost; Exit Penalty.
  4. [51% attack](https://www.investopedia.com/terms/1/51-attack.asp) See [www.crypto51.app on github](https://github.com/tdickman/crypto51)
  5. *Block Gap Synchronisation*: a block may not be properly broadcasted, causing the network to ignore subsequent blocks. [RAIBLK]
- 6. *Transaction flooding*: a malicious entity could send many unnecessary but valid transactions [RAIBLK]. Solution: each transaction must incure a fee.
+ 6. *Transaction flooding*: a malicious entity could send many unnecessary but valid transactions [RAIBLK]. Solution: each transaction must incur a fee.
  7. *Penny-Spend Attack*: an attacker spends very small quantities to a large number of accounts in order to waste storage resources of nodes [RAIBLK].
 
 References
@@ -123,3 +125,6 @@ References
  * [ETHWP8; Ethereum Problems, 8. Proof-of-Stake](https://github.com/ethereum/wiki/wiki/Problems#8-proof-of-stake)
  * [RAIBLK; Colin LeMahieu, RaiBlocks: A Feeless Distributed Cryptocurrency Network](https://www.raiblocks.net/media/RaiBlocks_Whitepaper__English.pdf)
  * [IOTA; Serguei Popov, The Tangle, April 30, 2018. Version 1.4.3](https://iota.org/IOTA_Whitepaper.pdf)
+ * [RPPL0; David Schwartz, Noah Youngs, Arthur Britto, The Ripple Protocol Consensus Algorithm](https://ripple.com/files/ripple_consensus_whitepaper.pdf)
+ * [RPPL18; Brad Chase, Ethan MacBrough, Analysis of the XRP Ledger Consensus Protocol](https://arxiv.org/abs/1802.07242)
+ * [CBLT18; Ethan MacBrough, Cobalt: BFT Governance in Open Networks](https://arxiv.org/abs/1802.07240)
