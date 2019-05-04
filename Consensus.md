@@ -128,3 +128,5 @@ References
  * [RPPL0; David Schwartz, Noah Youngs, Arthur Britto, The Ripple Protocol Consensus Algorithm](https://ripple.com/files/ripple_consensus_whitepaper.pdf)
  * [RPPL18; Brad Chase, Ethan MacBrough, Analysis of the XRP Ledger Consensus Protocol](https://arxiv.org/abs/1802.07242)
  * [CBLT18; Ethan MacBrough, Cobalt: BFT Governance in Open Networks](https://arxiv.org/abs/1802.07240)
+ * [PAXOSL; Tushar Chandra, Robert Griesemer, Joshua Redstone, Paxos Made Live - An Engineering Perspective](https://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/papers/paper2-1.pdf). Paxos is a centralised synchronous consensus algorithm, though the paper has a value for engineering perspective.
+ * [RAFT; Diego Ongaro, John Ousterhout, In Search of an Understandable Consensus Algorithm(Extended Version)](https://raft.github.io/raft.pdf). Another centralised consensus protocol of our interest.
