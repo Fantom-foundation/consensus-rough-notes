@@ -12,6 +12,7 @@ There are [several types of consensus algorithms](https://hackernoon.com/a-hitch
  7. [Proof-of-Storage](https://github.com/ethereum/wiki/wiki/Problems#9-proof-of-storage)
  8. Proof-of-Weight
  9. Byzantine Fault Tolerance (BFT)
+ 10. Proof-of-Elapsed-Time (PoET)
 
 Section "1.2 Related Work" from [DEXON:A Highly Scalable, Decentralized DAG-Based Consensus Algorithm](https://eprint.iacr.org/2018/1112.pdf) outlines differences in these types of Consensus:
 
@@ -58,6 +59,10 @@ Known implementations: [Permacoin]; [Torcoin]
 *Byzantine Fault Tolerance (BFT)* is based on [classic problem in distributed computing](https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf). Several cryptocurrency protocols use some version of BFT to come to consensus. [*Practical Byzantine Fault Tolerance (PBFT)*](http://pmg.csail.mit.edu/papers/osdi99.pdf) is in use by [Hyperledger Fabric](https://www.hyperledger.org/projects/fabric) with few < 20 preselected generals running PBFT. Drawbacks: Centralised/Permissioned. *Federated Byzantine Agreement (FBA)* - a solution to Byzantine general problem when each general responsible for their own chain and sorts messages as their come in to establish truth. Known implementations: [Stellar](https://www.stellar.org/); [Ripple](https://developers.ripple.com/xrp-ledger-overview.html).
 
 Original description of Ripple Consensus protocol is given in [RPPL0]; updated analysis is given in [RPPL18]. Ripple is going to replace current XRP LCP (Ripple Ledger Consensus Protocol) with Cobalt, described in [CBLT18].
+
+*Proof of Elapsed Time (PoET)* solves Byzantine Generals problem using "trusted execution environment (TEE), a technology developed by Intel. Each participating node in the network is required to wait for a randomly chosen time period, and the first one to complete the designated waiting time wins the new block.
+
+Known implementations: [Hyperledger Sawtooth](https://sawtooth.hyperledger.org/docs/core/releases/1.0/architecture/poet.html)
 
 
 Offscale engagement
@@ -130,3 +135,5 @@ References
  * [CBLT18; Ethan MacBrough, Cobalt: BFT Governance in Open Networks](https://arxiv.org/abs/1802.07240)
  * [PAXOSL; Tushar Chandra, Robert Griesemer, Joshua Redstone, Paxos Made Live - An Engineering Perspective](https://www.cs.utexas.edu/users/lorenzo/corsi/cs380d/papers/paper2-1.pdf). Paxos is a centralised synchronous consensus algorithm, though the paper has a value for engineering perspective.
  * [RAFT; Diego Ongaro, John Ousterhout, In Search of an Understandable Consensus Algorithm(Extended Version)](https://raft.github.io/raft.pdf). Another centralised consensus protocol of our interest.
+ * [SURVEY; Abdul Wahab, Waqas Mehmood, Survey of Consensus Protocols](https://arxiv.org/abs/1810.03357)
+ 
