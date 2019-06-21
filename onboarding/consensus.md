@@ -13,5 +13,4 @@ Offscale believes Fantom's Lachesis has several flaws in the design preventin it
 
 See [Asynchronous Consensus: A Model in TLA+](papers/Asynchronous-Consensus-A-model-in-TLA+-Tarzia_499_paper.pdf) paper as a model for Lachesis analysis need to be done.
 
-See more on Consensus and various types of it in [Consensus.md](Consensus.md).
-
+See more on Consensus and various types of it in [Consensus.md](../Consensus.md).
