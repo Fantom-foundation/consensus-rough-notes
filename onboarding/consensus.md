@@ -13,5 +13,17 @@ Offscale believes Fantom's Lachesis has several flaws in the design preventin it
 
 See [Asynchronous Consensus: A Model in TLA+](../papers/Asynchronous-Consensus-A-model-in-TLA+-Tarzia_499_paper.pdf) paper as a model for Lachesis analysis need to be done.
 
-See more on Consensus and various types of it in [Consensus.md](../Consensus.md).
+---
 
+There also a related [Coq proof](https://www.hedera.com/hashgraph-coq.zip) of
+Hashgraph being Byzantine fault tolerant. See also the [blog
+post](https://www.hedera.com/blog/coq-proof-completed-by-carnegie-mellon-professor-confirms-hashgraph-consensus-algorithm-is-asynchronous-byzantine-fault-tolerant).
+
+More advanced Coq proof automation for proofs of distributed protocols was
+introduced in a [POPL paper](https://homes.cs.washington.edu/~ztatlock/pubs/diesel-sergey-popl18.pdf).
+These techniques have been applied to building a formal model of a toy blockchain
+consensus and proving its eventual consistency around the same time in a [CPP 
+paper](https://ilyasergey.net/papers/toychain-cpp18.pdf), with proofs available
+on [GitHub](https://github.com/certichain/toychain).
+
+See more on Consensus and various types of it in [Consensus.md](../Consensus.md).
