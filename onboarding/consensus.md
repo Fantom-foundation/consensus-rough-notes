@@ -9,7 +9,7 @@ It has started from analysis of the implementation of Fantom Foundation's Laches
 
 3. [ONLAY: ONLINE LAYERING FOR SCALABLE ASYNCHRONOUS BFT SYSTEM](../papers/Fantom-Layer_v12.pdf); [on arxiv.org](https://arxiv.org/abs/1905.04867).
 
-Offscale believes Fantom's Lachesis has several flaws in the design preventin it to work on resonable high number of nodes (15+). Our nearest goal would be in constructing a TLA+ model of Lachesis and desproving its correctnes using it.
+Offscale believes Fantom's Lachesis has several flaws in the design preventing it to work on resonable high number of nodes (15+). Our nearest goal would be in constructing a TLA+ model of Lachesis and desproving its correctnes using it.
 
 See [Asynchronous Consensus: A Model in TLA+](../papers/Asynchronous-Consensus-A-model-in-TLA+-Tarzia_499_paper.pdf) paper as a model for Lachesis analysis need to be done.
 
