@@ -1,4 +1,3 @@
-offscale-rough-notes
-====================
-
-Rough, private notes for Offscale to share within themselves.
+consensus-rough-notes
+=====================
+Rough notes for Offscale.io team to discuss consensus.
