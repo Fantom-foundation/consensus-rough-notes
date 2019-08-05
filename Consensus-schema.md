@@ -292,7 +292,7 @@ Frame is a set of all messages in the network having the same frame number.
 
 # DAG1
 
-This version includes iresponsive node detection mechanisme allowing fault-tolerance.
+This version includes iresponsive node detection mechanism allowing fault-tolerance.
 
 Iresponsive node detection architecture could be based on [GEMS paper](papers/GEMS-Gossip-Enabled-Monitoring-Service-for-Scalable-Heterogeneous-Distributed-Systems-10.1.1.160.2604.pdf). We could also employ reachability algorithm based either on [Thorup's Algorithm](https://en.wikipedia.org/wiki/Reachability#Thorup's_Algorithm), either on [Kameda's Algorithm](https://en.wikipedia.org/wiki/Reachability#Kameda's_Algorithm); though these algorithms require graph to be planar which might be not the case of DAG with random peer connection pattern.
 
