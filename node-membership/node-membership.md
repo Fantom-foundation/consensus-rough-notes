@@ -31,7 +31,7 @@ Each circle may contain in the order of 10,000 nodes.
 
 ### Modules
 
-1. Gossip graph builder: disseminates membership events (_alive_ or _faulty_)
+1. Gossip graph builder: disseminates membership events (`alive` or `faulty`)
    and maintains a local history of membership changes that can also be
    gossiped.  The membership list at a node can be computed by replaying the
    membership events in the gossip graph of that node. This component also
@@ -39,12 +39,12 @@ Each circle may contain in the order of 10,000 nodes.
    tests will use when accessing the membership circles. The membership circles
    are compiled at runtime from the local gossip graph.
 
-2. Failure detector, switchable: either built-in (_ping_ or _ack_ or _pingreq_
+2. Failure detector, switchable: either built-in (`ping` or `ack` or `pingreq`
    as in SWIM) or external via an API (possibly DAGx). Even when an external
-   detector is configured, _pingreq_ messages should still be handled by the
+   detector is configured, `pingreq` messages should still be handled by the
    internal failure detector. In the prototype we will not have a built-in
    failure detector and will use a dummy external failure detector in order not
-   to worry about the handling of _pingreq_ messages.
+   to worry about the handling of `pingreq` messages.
 
 3. Node classifier: attributes a node into a circle based on a given user
    metric. This module contains a trait API for a user function that, given a
@@ -111,10 +111,10 @@ are the same as in HashGraph and Parsec.
 
 Placement of a node X in a circle or removal of it requires agreement of a
 supermajority of nodes (which can be restricted to the inner circle) in the
-following sense: once a supermajority of nodes strongly see the node _alive_ or
-_faulty_ event E in the gossip graph local to a node Y, node Y assumes that node
-X placement or removal has been committed. Node Y then gossips the event E to
-the nodes that do not strongly see E in the local gossip graph of node Y.
+following sense: once a supermajority of nodes strongly see the node's `alive`
+or `faulty` event E in the gossip graph local to a node Y, node Y assumes that
+node X's placement or removal has been committed. Node Y then gossips the event
+E to the nodes that do not strongly see E in the local gossip graph of node Y.
 
 
 ## Influences
