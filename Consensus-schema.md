@@ -130,7 +130,7 @@ It is a question to simulation/modelling code to see how Next peer selection alg
 
 Gossip list
 ==
-Gossip list stores lamport timestamp for every peer indicating when each peer has been communicated/seen last;
+Gossip list stores lamport timestamp and `height` value for every peer indicating when each peer has been communicated/seen last and what is the last event number known from that creator (of that peer created events);
 Merging two gossip lists: the highest value of lamport timestamp corresponding to a peer in both lists is taken into merged gossip list.
 
 
