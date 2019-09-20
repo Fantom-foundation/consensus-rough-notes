@@ -79,20 +79,20 @@ loop:
 * process internal transactions;
 * strip off flag table (to save storage space, optional)
 
-4. Node sync procedure:
+4. Node sync procedure (Procedure A):
 
-* Send current gossip list and lamport time value to remote peer;
-* receive a reply consisting of remote gossip list, remote lamport time value and pack of unknown messages;
+* Send current gossip list and lamport time value to remote peer; (`SyncReq`->)
+* receive a reply consisting of remote gossip list, remote lamport time value and pack of unknown messages; (`SyncReply`<-)
 * process all unknown messages one by one in order in the pack by executing event insertion procedure for every unknown event;
 * merge remote gossip list into current gossip list;
 * set the lamport time value of the current node to the maximum of its current value and remote lamport time value;
 * create a new event if needed referring the remote peer as other-parent.
 
-5. Node sync reply procedure:
+5. Node sync reply procedure (Procedure B):
 
-* receive remote gossip list and remote lamport time value;
+* receive remote gossip list and remote lamport time value; (`SyncReq`<-)
 * create a bundle of all known messages not known by remote peer (these are events from each known peer whose lamport timestamp greater or equal to the value from corresponding coordinate in the remote gossip list);
-* send bundled events to the remote peer along with current gossip list and current lamport time value;
+* send bundled events to the remote peer along with current gossip list and current lamport time value; (`SyncReply`->)
 * set the lamport time value of the current node to the maximum of its current value and remote lamport time value.
 
 Lamport time
@@ -138,7 +138,7 @@ Event
 ==
 event is an atomic block of exchange between peers. The structure of the event:
 
-* creator's pubkey
+* creator's public key
 * creator's height index
 * self-parent hash
 * other-parent hash
@@ -148,6 +148,8 @@ event is an atomic block of exchange between peers. The structure of the event:
 * map of digital signatures of the hash field above; one per each peer has been passed by
 * frame number
 * flag table
+
+`frame number` and `flag table` fields are not passing over network in communication between nodes.
 
 *NB*: signing hash field and all fields used in hash calculation provides better protection in case of hash collision but is more computational expensive.
 
