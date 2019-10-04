@@ -209,7 +209,7 @@ if self-parent.Frame == other-parent.Frame {
 		frame = self-parent.Frame
 	}
 
-} else if self-parent > other-parent.Frame {
+} else if self-parent.Frame > other-parent.Frame {
 	root = false
 	frame = self-parent.Frame
 } else {
