@@ -1,3 +1,7 @@
 *~
 *.bak
 .vscode/
+*.aux
+*.log
+*.out
+.idea

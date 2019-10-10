@@ -2,8 +2,8 @@
 # Constants
 #
 tex = pdflatex
-src = src/offscale-consensus.tex
-pdf = doc/offscale-consensus.pdf
+src = src/introduction.tex
+pdf = doc/introduction.pdf
 
 #
 # Targets

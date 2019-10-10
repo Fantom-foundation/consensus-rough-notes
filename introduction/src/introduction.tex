@@ -10,7 +10,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\title{Offscale's consensus algorithm}
+\title{consensus algorithm}
 
 \author{Vladimir Komendantskiy}
 
@@ -18,7 +18,7 @@
 \maketitle
 
 \abstract{Using prior work on Lachesis consensus \cite{lachesis} and following informal
-  implementation notes by Offscale \cite{notes}, I am aiming at defining a gossip-inspired consensus
+  implementation notes by \cite{notes}, I am aiming at defining a gossip-inspired consensus
   algorithm in a way amenable to incremental implementation and formal verification.}
 
 
@@ -28,31 +28,31 @@ Replicated state machines underpin blockshain technology. Blockchains whose stat
 chain of blocks follow replicated state machine design to achieve replication of the same chain
 across the network.
 
-It should be noted that Offscale's design is one of a \emph{blockchain} since, as Maxim Zakharov put
+It should be noted that design is one of a \emph{blockchain} since, as Maxim Zakharov put
 it in \cite{notes} exactly, ``tasks/problems the consensus layer solves: \dots creating a
 \emph{linear order of all events} of a frame based on lamport timestamps of the events and
 synchronisation patterns''. To put the quote in context, it should be added that frames are linearly
 ordered too. Hence all events that are members of frames are linearly ordered. Therefore an Offscale
 blockchain pursues the same fundamental goal as most existing blockchains such as Bitcoin or
-Ethereum. However the design of the replicated state machine used by such an Offscale blockchain is
+Ethereum. However the design of the replicated state machine used by such an blockchain is
 different due to choices made to address inherent problems in today's decentralised mainstream
 blockchains: low transaction rate, low transaction confirmation speed and strong synchrony
 assumptions.
 
 By increasing the rate at wich transactions can be submitted to the network, and submitted
-transactions confirmed, an Offscale blockchain aims to solve a part of the scalability problem which
+transactions confirmed, an blockchain aims to solve a part of the scalability problem which
 limits the use of blockchain technology to the ``store of value'' use cases, and to apply thus
 improved blockchain technology in domains that strongly rely on high thransaction throughput such as
 large-scale heterogenous computational networks commonly referred to as the Internet of Things.
 
-By lifting synchrony assumptions an Offscale blockchain addresses security concerns of synchronous
+By lifting synchrony assumptions an blockchain addresses security concerns of synchronous
 protocols, Bitcoin included, which require setting an interval between blocks to at least the time
 greater than the maximum message delay on the network \cite{rethinking}. The minimum interval
 requirement poses a straightforward problem for such protocols: what if the expected maximum message
 delay does get exceeded for a majority of participants making them unable to produce or receive
 blocks, thereby making it possible for a minority of participants to construct the longest (and
 therefore valid) chain in the meantime? This is an attack vector on a synchronous blockchain which
-can be exploited by a maliciously conspiring adversary. In an Offscale blockchain and in an
+can be exploited by a maliciously conspiring adversary. In an blockchain and in an
 asynchronous blockchain in general, this kind of a minority adversary will not be able to mutate the
 global state because, even if the majority experiences a network split, a majority vote is still
 required in order to mutate the global state, which is why the minority will not be able to make
@@ -89,7 +89,7 @@ assumptions don't hold either and instances of the protocol may exhibit arbitrar
 behaviour. Therefore having strong assumptions may help in proving statements but those statements
 will be weak and would cover only a small number of cases.
 
-Offscale's consensus model assumptions are as weak as it is possible for stating protocol
+consensus model assumptions are as weak as it is possible for stating protocol
 properties. This allows to capture real-world scenarios involving communication protocols with
 unreliable message delivery. In the model, I assume total asynchrony between participants: messages
 from a single sender can be reordered and an arbitrary number of messages can be dropped. Therefore
