@@ -64,11 +64,10 @@ loop:
 * all events in the frame are sorted according following rules:
 
  1. Smaller Lamport timestamp has priority;
- 2. Smaller creator's index has priority;
- 3. Smaller Lamport timestamp of `other (grand-)*parents` (recursively up to leaf events);
- 4. Smaller hash value
+ 2. Smaller Lamport timestamp of `other (grand-)*parents` (recursively up to leaf events);
+ 3. Smaller hash value
 
-*NB*: For large number of peers in the network, the Rule 3 would require significant amount of storage access operations and thus could be omitted or relaxed to other-parent's Lamport timestamp only.
+*NB*: For large number of peers in the network, the Rule 2 would require significant amount of storage access operations and thus could be omitted or relaxed to other-parent's Lamport timestamp only.
 
 * sorted events are finalised in the order.
 
@@ -201,7 +200,7 @@ if self-parent.Frame == other-parent.Frame {
 	rootFlagTable = strict-merge-flag-tables(self-parent.Frame, self-parent.FlagTable, other-parent.FlagTable)
 	creatorRootFlagTable = derive-creator-table(rootFlagTable)
 
-	if len(creatorRootTable) >= rootMajority {
+	if len(creatorRootFlagTable) >= rootMajority {
 		root = true
 		frame = self-parent.Frame + 1
 	} else {
@@ -216,7 +215,7 @@ if self-parent.Frame == other-parent.Frame {
 	root = true
 	frame = other-parent.Frame
 }
-event.frame = frame
+event.Frame = frame
 visibilisFlagTable = open-merge-flag-tables(node.last-finalised-frame  + 1, self-parent.visibilisFlagTable, other-parent.visibilisFlagTable)
 if root {
 	visibilisFlagTable[event.Hash] = frame
@@ -281,7 +280,7 @@ Leaf events are roots by default; Any event visible by `Rootmajority` roots of p
 
 Visibilis
 ==
-An event becomes Visibilis when the of its creator flag table becomes equal to the number of peers in the network. Once an event becomes Visibilis on the current node, the current node executes frame finalisation procedure.
+An event becomes Visibilis when the size of its creator flag table becomes equal to the number of peers in the network. Once an event becomes Visibilis on the current node, the current node executes frame finalisation procedure.
 
 Frame number
 ==
